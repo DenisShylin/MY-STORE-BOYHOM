@@ -1,0 +1,112 @@
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    width: 90%;
+    /* Reduced from 100% to show edges */
+    height: calc(100vh - 120px);
+    /* Reduced height to show bottom section */
+    background: white;
+    z-index: 999;
+    transition: transform 0.3s ease;
+    opacity: 1;
+    border-radius: 0 0 20px 20px;
+    /* Added rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Added shadow for depth */
+}
+
+.mobile-menu.open {
+    padding: 20px;
+    transform: translateX(-50%) translateY(0);
+}
+
+.header.scrolled~.mobile-menu {
+    top: 55px;
+    height: calc(100vh - 95px);
+    /* Adjusted for scrolled state */
+}
+
+.mobile-menu__content {
+    padding: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+    /* Added scroll for content if needed */
+}
+
+.mobile-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu__list li {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.open .mobile-menu__list li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Transition delays for menu items */
+.mobile-menu.open .mobile-menu__list li:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.mobile-menu.open .mobile-menu__list li:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.mobile-menu.open .mobile-menu__list li:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.mobile-menu.open .mobile-menu__list li:nth-child(4) {
+    transition-delay: 0.5s;
+}
+
+.mobile-menu.open .mobile-menu__list li:nth-child(5) {
+    transition-delay: 0.6s;
+}
+
+.mobile-menu__list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: block;
+    padding: 0.75rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Static underline for all links */
+.mobile-menu.open .mobile-menu__list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.mobile-menu__list a:hover {
+    color: #07a4ff;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+}
