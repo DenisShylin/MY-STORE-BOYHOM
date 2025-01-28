@@ -6,15 +6,15 @@
     transform: translateX(-50%) translateY(80px) translateY(-100%);
     width: 90%;
     height: calc(100vh - 80px);
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
     z-index: 999;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
-    /* Changed to 0 by default */
     visibility: hidden;
-    /* Added visibility hidden */
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 8px 32px rgba(76, 0, 255, 0.1);
+    border: 1px solid rgba(76, 0, 255, 0.05);
 }
 
 .mobile-menu.open {
@@ -24,22 +24,36 @@
     visibility: visible;
 }
 
-/* Adjust for scrolled header state */
+/* Коригування для стану прокрутки хедера */
 .header.scrolled~.mobile-menu {
-    transform: translateX(-50%) translateY(55px) translateY(-100%);
+    transform: translateX(-50%) translateY(65px) translateY(-100%);
 }
 
 .header.scrolled~.mobile-menu.open {
-    transform: translateX(-50%) translateY(55px);
+    transform: translateX(-50%) translateY(65px);
     opacity: 1;
     visibility: visible;
 }
 
-/* Rest of the styles remain the same */
 .mobile-menu__content {
-    padding: 1.5rem;
+    padding: 2rem;
     height: 100%;
     overflow-y: auto;
+    position: relative;
+}
+
+.mobile-menu__content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mobile-menu__content::-webkit-scrollbar-track {
+    background: rgba(76, 0, 255, 0.05);
+    border-radius: 3px;
+}
+
+.mobile-menu__content::-webkit-scrollbar-thumb {
+    background: rgba(76, 0, 255, 0.2);
+    border-radius: 3px;
 }
 
 .mobile-menu__list {
@@ -49,10 +63,10 @@
 }
 
 .mobile-menu__list li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(-20px);
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-menu.open .mobile-menu__list li {
@@ -60,59 +74,98 @@
     transform: translateY(0);
 }
 
-/* Transition delays for menu items */
+/* Затримки анімації для пунктів меню */
 .mobile-menu.open .mobile-menu__list li:nth-child(1) {
-    transition-delay: 0.2s;
+    transition-delay: 0.1s;
 }
 
 .mobile-menu.open .mobile-menu__list li:nth-child(2) {
-    transition-delay: 0.3s;
+    transition-delay: 0.2s;
 }
 
 .mobile-menu.open .mobile-menu__list li:nth-child(3) {
-    transition-delay: 0.4s;
+    transition-delay: 0.3s;
 }
 
 .mobile-menu.open .mobile-menu__list li:nth-child(4) {
-    transition-delay: 0.5s;
+    transition-delay: 0.4s;
 }
 
 .mobile-menu.open .mobile-menu__list li:nth-child(5) {
-    transition-delay: 0.6s;
+    transition-delay: 0.5s;
 }
 
 .mobile-menu__list a {
-    color: #333;
+    font-family: 'Orbitron', sans-serif;
+    color: #121212;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 500;
     display: block;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     transition: all 0.3s ease;
     position: relative;
+    letter-spacing: 1px;
 }
 
-/* Static underline for all links */
-.mobile-menu.open .mobile-menu__list a::after {
+.mobile-menu__list a::before {
     content: '';
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4c00ff, transparent);
+    transition: width 0.3s ease;
 }
 
-/* Hover effects */
+/* Ефект при наведенні */
 .mobile-menu__list a:hover {
-    color: #07a4ff;
-    transform: scale(1.05);
+    color: #4c00ff;
+    transform: translateX(10px);
+}
+
+.mobile-menu__list a:hover::before {
+    width: 100%;
+}
+
+/* Анімація фону при відкритті */
+.mobile-menu.open::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(76, 0, 255, 0.03), transparent);
+    border-radius: 0 0 25px 25px;
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
     .mobile-menu {
         display: block;
+    }
+
+    .mobile-menu__list a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu__list a {
+        font-size: 1.1rem;
+    }
+
+    .mobile-menu__content {
+        padding: 1.5rem;
+    }
+}
+
+/* Додаткові ефекти для ретина-дисплеїв */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .mobile-menu {
+        box-shadow: 0 8px 32px rgba(76, 0, 255, 0.15);
     }
 }

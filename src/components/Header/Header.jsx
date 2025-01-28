@@ -39,13 +39,13 @@ const Header = () => {
           {/* Десктопне меню */}
           <ul className="desktop-menu">
             <li>
-              <a className="our-menu-link" href="#home">
+              <a className="our-menu-link" href="#hero">
                 Головна
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#prices">
-                Ціни
+                Про нас
               </a>
             </li>
             <li>
@@ -55,12 +55,17 @@ const Header = () => {
             </li>
             <li>
               <a className="our-menu-link" href="#home">
-                Про нас
+                Ціни
               </a>
             </li>
             <li>
               <a className="our-menu-link" href="#contacts">
                 Контакти
+              </a>
+            </li>
+            <li>
+              <a className="our-menu-link" href="#contacts">
+                Відгуки
               </a>
             </li>
           </ul>
