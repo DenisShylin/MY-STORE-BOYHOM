@@ -23,8 +23,8 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
-    padding: 0 45px;
+    padding-left: 38px;
+    padding-right: 38px;
     height: 100%;
     margin: 0 auto;
 }
@@ -56,13 +56,13 @@
     display: block;
     width: 30px;
     height: 3px;
-    background: #000;
+    background: #121212;
     position: absolute;
     transition: all 0.3s ease;
 }
 
 .burger-line {
-    background: #000;
+    background: #121212;
 }
 
 .burger-line::before {
@@ -75,19 +75,28 @@
     top: 8px;
 }
 
-/* Анимация бургера */
+/* Анимация бургера при наведении */
+.burger-btn:hover .burger-line,
+.burger-btn:hover .burger-line::before,
+.burger-btn:hover .burger-line::after {
+    background: #07a4ff;
+}
+
+/* Анимация бургера при открытии */
 .burger-line.open {
-    background: transparent;
+    background-color: transparent !important;
 }
 
 .burger-line.open::before {
     transform: rotate(45deg);
     top: 0;
+    background: #07a4ff;
 }
 
 .burger-line.open::after {
     transform: rotate(-45deg);
     top: 0;
+    background: #07a4ff;
 }
 
 /* Десктопное меню */
@@ -109,6 +118,25 @@
     color: #07a4ff;
 }
 
+/* Кнопка корзины */
+.cart-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-btn svg {
+    fill: #121212;
+    transition: fill 0.3s ease;
+}
+
+.cart-btn:hover svg {
+    fill: #07a4ff;
+}
 
 @media (max-width: 768px) {
     .burger-btn {
@@ -118,6 +146,11 @@
     .desktop-menu {
         display: none;
     }
-
-
 }
+
+/* @media (min-width: 768px) and (max-width: 1279px) {
+    .nav {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+} */
