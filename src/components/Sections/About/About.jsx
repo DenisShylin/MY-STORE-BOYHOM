@@ -4,17 +4,29 @@ import "./About.css";
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Define image sets with regular and Retina versions
   const images = [
-    "/src/assets/products/tv-console.jpg",
-    "/src/assets/products/portable.jpg",
-    "/src/assets/products/controller.jpg",
-    // Добавьте пути к вашим изображениям
+    {
+      regular: "/src/assets/products/abaut/imagegs 1.jpg",
+      retina: "/src/assets/products/abaut/imagegs 1@2x.jpg", // 2x version
+      alt: "TV Gaming Console",
+    },
+    {
+      regular: "/src/assets/products/portable.jpg",
+      retina: "/src/assets/products/portable.jpg", // 2x version
+      alt: "Portable Gaming Console",
+    },
+    {
+      regular: "/src/assets/products/controller.jpg",
+      retina: "/src/assets/products/controller@2x.jpg", // 2x version
+      alt: "Game Controller",
+    },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 5000); // Смена изображения каждые 5 секунд
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -24,7 +36,6 @@ const About = () => {
       <div className="about-decoration"></div>
       <div className="about-container">
         <div className="about-content">
-          {/* <h2 className="about-title">Про нас</h2> */}
           <p className="about-text">
             BOYHOM – це світ захоплюючих ігор для всієї родини! Ми створюємо
             якісні та доступні ігрові приставки, геймпади та аксесуари.
@@ -42,11 +53,20 @@ const About = () => {
                 index === currentSlide ? "active" : ""
               }`}
             >
-              <img
-                src={image}
-                alt={`Gaming console ${index + 1}`}
-                loading="lazy"
-              />
+              <picture>
+                {/* Retina source */}
+                <source
+                  srcSet={image.retina}
+                  media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+                />
+                {/* Regular source */}
+                <img
+                  src={image.regular}
+                  alt={image.alt}
+                  loading="lazy"
+                  className="carousel-image"
+                />
+              </picture>
             </div>
           ))}
         </div>
