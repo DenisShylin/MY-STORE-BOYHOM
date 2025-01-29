@@ -7,18 +7,18 @@ const About = () => {
   // Define image sets with regular and Retina versions
   const images = [
     {
-      regular: "/src/assets/products/abaut/imagegs 1.jpg",
-      retina: "/src/assets/products/abaut/imagegs 1@2x.jpg", // 2x version
+      regular: "/src/assets/products/abaut/R36S_8_1x.jpg",
+      retina: "/src/assets/products/abaut/R36S_8_2x.jpg", // 2x version
       alt: "TV Gaming Console",
     },
     {
-      regular: "/src/assets/products/portable.jpg",
-      retina: "/src/assets/products/portable.jpg", // 2x version
+      regular: "/src/assets/products/abaut/boy17_4_1x.jpg",
+      retina: "/src/assets/products/abaut/boy17_4_2x.jpg", // 2x version
       alt: "Portable Gaming Console",
     },
     {
-      regular: "/src/assets/products/controller.jpg",
-      retina: "/src/assets/products/controller@2x.jpg", // 2x version
+      regular: "/src/assets/products/abaut/x6_6_1x.jpg",
+      retina: "/src/assets/products/abaut/x6_6_2x.jpg", // 2x version
       alt: "Game Controller",
     },
   ];
