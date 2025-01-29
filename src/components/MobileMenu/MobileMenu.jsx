@@ -6,7 +6,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
       <div className="mobile-menu__content">
         <ul className="mobile-menu__list">
           <li>
-            <a href="#home" onClick={onClose}>
+            <a href="#hero" onClick={onClose}>
               Головна
             </a>
           </li>
