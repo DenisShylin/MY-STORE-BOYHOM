@@ -1,24 +1,31 @@
 import { useState, useEffect } from "react";
 import "./About.css";
 
+// Імпортуємо зображення, піднімаємось на 3 рівні вгору
+import R36S1x from "../../../assets/img/abaut/R36S_8_1x.jpg";
+import R36S2x from "../../../assets/img/abaut/R36S_8_2x.jpg";
+import Boy1x from "../../../assets/img/abaut/boy17_4_1x.jpg";
+import Boy2x from "../../../assets/img/abaut/boy17_4_2x.jpg";
+import X61x from "../../../assets/img/abaut/x6_6_1x.jpg";
+import X62x from "../../../assets/img/abaut/x6_6_2x.jpg";
+
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Define image sets with regular and Retina versions
   const images = [
     {
-      regular: "/src/assets/products/abaut/R36S_8_1x.jpg",
-      retina: "/src/assets/products/abaut/R36S_8_2x.jpg", // 2x version
+      regular: R36S1x,
+      retina: R36S2x,
       alt: "TV Gaming Console",
     },
     {
-      regular: "/src/assets/products/abaut/boy17_4_1x.jpg",
-      retina: "/src/assets/products/abaut/boy17_4_2x.jpg", // 2x version
+      regular: Boy1x,
+      retina: Boy2x,
       alt: "Portable Gaming Console",
     },
     {
-      regular: "/src/assets/products/abaut/x6_6_1x.jpg",
-      retina: "/src/assets/products/abaut/x6_6_2x.jpg", // 2x version
+      regular: X61x,
+      retina: X62x,
       alt: "Game Controller",
     },
   ];
