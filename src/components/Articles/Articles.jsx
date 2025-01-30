@@ -1,12 +1,11 @@
 // src/components/Articles/Articles.jsx
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Accordion from "accordion-js";
 import "accordion-js/dist/accordion.min.css";
 import "./Articles.css";
 
 const Articles = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const accordionRef = useRef(null);
 
   const articles = {
     portable: [
@@ -20,7 +19,6 @@ const Articles = () => {
             <li>Вага та розміри</li>
             <li>Доступність ігор</li>
           </ul>
-          <p>Також варто врахувати...</p>
         `,
       },
       {
@@ -48,19 +46,6 @@ const Articles = () => {
         `,
       },
     ],
-    controllers: [
-      {
-        title: "Вибір контролера для гри",
-        content: `
-          <p>На що звернути увагу при виборі контролера:</p>
-          <ul>
-            <li>Ергономіка та вага</li>
-            <li>Тип підключення (дротовий/бездротовий)</li>
-            <li>Додаткові функції (вібрація, гіроскоп)</li>
-          </ul>
-        `,
-      },
-    ],
   };
 
   useEffect(() => {
@@ -81,26 +66,20 @@ const Articles = () => {
   }, []);
 
   useEffect(() => {
-    if (isVisible && !accordionRef.current) {
-      accordionRef.current = new Accordion(".articles-accordion", {
+    if (isVisible) {
+      const accordion = new Accordion(".articles-accordion", {
         duration: 400,
         showMultiple: true,
-        elementClass: "accordion-item",
-        triggerClass: "accordion-header",
-        panelClass: "accordion-panel",
-        activeClass: "accordion-active",
-        beforeOpen: (element) => {
-          element.style.maxHeight = "none";
+        onOpen: (currentElement) => {
+          console.log("opened", currentElement);
+        },
+        onClose: (currentElement) => {
+          console.log("closed", currentElement);
         },
       });
-    }
 
-    return () => {
-      if (accordionRef.current) {
-        accordionRef.current.destroy();
-        accordionRef.current = null;
-      }
-    };
+      return () => accordion.destroy();
+    }
   }, [isVisible]);
 
   return (
@@ -112,25 +91,26 @@ const Articles = () => {
 
         <div className="articles-accordion">
           {Object.entries(articles).map(([category, items]) => (
-            <div key={category} className="article-category">
-              <h3 className="category-title">
-                {category === "portable" && "Портативні консолі"}
-                {category === "tv" && "Консолі для телевізора"}
-                {category === "controllers" && "Контролери"}
+            <div key={category} className="ac">
+              <h3 className="ac-header">
+                <button type="button" className="ac-trigger">
+                  {category === "portable"
+                    ? "Портативні консолі"
+                    : "Консолі для телевізора"}
+                </button>
               </h3>
-              {items.map((article, index) => (
-                <div key={index} className="accordion-item">
-                  <div className="accordion-header">
-                    <h4>{article.title}</h4>
-                  </div>
-                  <div className="accordion-panel">
-                    <div
-                      className="accordion-content"
-                      dangerouslySetInnerHTML={{ __html: article.content }}
-                    />
-                  </div>
+              <div className="ac-panel">
+                <div className="ac-content">
+                  {items.map((article, index) => (
+                    <div key={index} className="article-item">
+                      <h4>{article.title}</h4>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: article.content }}
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           ))}
         </div>

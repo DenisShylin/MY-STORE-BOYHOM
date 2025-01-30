@@ -12,6 +12,9 @@ import Reviews from "./components/Sections/Reviews/Reviews";
 import Contact from "./components/Sections/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
+// Импорт стилей для аккордеона
+import "accordion-js/dist/accordion.min.css";
+
 function App() {
   return (
     <>
