@@ -5,7 +5,7 @@
     min-height: 100vh;
     padding-top: 80px;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url('../../assets/hero/bg.png') center/cover;
+        url('../../assets/img/hero/bg.png') center/cover;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -127,7 +127,7 @@
 (min-resolution: 192dpi) {
     .hero {
         background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-            url('../../assets/hero/bg2x.png');
+            url('../../assets/img/hero/bg2x.png');
     }
 }
 

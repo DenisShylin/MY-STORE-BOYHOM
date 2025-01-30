@@ -1,0 +1,146 @@
+/* src/components/Articles/Articles.css */
+.articles {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(76, 0, 255, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.articles-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.articles-title.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.articles-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-category {
+    margin-bottom: 2rem;
+}
+
+.category-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(76, 0, 255, 0.2);
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(76, 0, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 1rem 1.5rem;
+    background: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.accordion-header h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+    padding-right: 30px;
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #4c00ff;
+    transition: transform 0.3s ease;
+}
+
+.accordion-active .accordion-header::after {
+    content: '-';
+}
+
+.accordion-header:hover {
+    background-color: rgba(76, 0, 255, 0.05);
+}
+
+.accordion-panel {
+    background: #fff;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content {
+    padding: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.accordion-content p {
+    margin-bottom: 1rem;
+}
+
+.accordion-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .articles-title {
+        font-size: 2.5rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .articles {
+        padding: 60px 0;
+    }
+
+    .articles-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .accordion-header {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .accordion-header h4 {
+        font-size: 1rem;
+    }
+
+    .accordion-content {
+        padding: 1.25rem;
+    }
+}
