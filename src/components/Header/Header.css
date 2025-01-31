@@ -30,7 +30,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
     padding: 0 2rem;
     height: 100%;
     margin: 0 auto;
@@ -190,6 +189,7 @@
 .cart-btn:hover svg {
     fill: #4c00ff;
 }
+
 
 /* Медіа-запити */
 @media (max-width: 768px) {
