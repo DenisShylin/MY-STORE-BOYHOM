@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./About.css";
 
 // Імпортуємо зображення, піднімаємось на 3 рівні вгору
-import R36S1x from "../../../assets/img/abaut/R36S_8_1x.jpg";
-import R36S2x from "../../../assets/img/abaut/R36S_8_2x.jpg";
+import R36S1x from "../../../assets/img/hero/image_1x_.avif";
+import R36S2x from "../../../assets/img/hero/image_2x_.avif";
 import Boy1x from "../../../assets/img/abaut/boy17_4_1x.jpg";
 import Boy2x from "../../../assets/img/abaut/boy17_4_2x.jpg";
 import X61x from "../../../assets/img/abaut/x6_6_1x.jpg";
