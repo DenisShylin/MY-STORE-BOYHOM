@@ -58,7 +58,6 @@
             rgba(76, 0, 255, 0.2) 0%,
             rgba(0, 0, 0, 0.4) 100%);
     z-index: 1;
-    backdrop-filter: blur(1px);
     transform: translateZ(0);
 }
 
